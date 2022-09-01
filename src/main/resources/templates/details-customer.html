@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Customer Details - SpringCRM</title>
+    <link th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}" th:rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+
+<body>
+<div class="container">
+
+    <div th:replace="fragments/navbar"></div>
+    <h1 class="text-center">Customer Details</h1>
+    <div th:replace="fragments/message"></div>
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td class="w-25"><span>ID:</span></td>
+            <td><span th:text="${customer.id}"></span></td>
+        </tr>
+        <tr>
+            <td><span>First Name:</span></td>
+            <td><span th:text="${customer.firstName}"></span></td>
+        </tr>
+        <tr>
+            <td><span>Last Name:</span></td>
+            <td><span th:text="${customer.lastName}"></span></td>
+        </tr>
+    </table>
+
+    <h2>Orders</h2>
+
+    <p th:if="${customer.getOrderIds().isEmpty()}">
+        No orders from this customer!
+    </p>
+
+    <table class="table table-bordered table-hover" th:if="${!customer.getOrderIds().isEmpty()}">
+        <thead>
+        <tr>
+            <th class="w-25">Order ID</th>
+            <th>Order Timestamp</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="orderId,iterStat : ${customer.orderIds}">
+            <td><a th:href="'/orders/'+${orderId}" th:text="${orderId}"/></td>
+            <td><span th:text="${customer.orderTimestamps[iterStat.index]}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

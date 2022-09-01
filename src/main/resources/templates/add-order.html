@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Order - SpringCRM</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/select2/4.0.13/css/select2.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/select2-bootstrap-5-theme/1.3.0/dist/select2-bootstrap-5-theme.css}"/>
+
+    <script th:src="@{/webjars/jquery/3.6.1/dist/jquery.min.js}"></script>
+    <script th:src="@{/webjars/select2/4.0.13/js/select2.min.js}"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <div th:replace="fragments/navbar"></div>
+    <h1 class="text-center">Add Order</h1>
+    <div th:replace="fragments/message"></div>
+
+    <fieldset class="border p-2">
+        <legend class="float-none w-auto">Add Order</legend>
+        <form action="#" id="order-form" method="post" th:action="@{/orders/add}" th:object="${orderAddDto}">
+            <div class="form-group row m-1">
+                <div class="col">
+                    <label class="col-form-label" for="customerId">Customer</label>
+                    <select class="form-select" id="customerId" required th:name="customerId">
+                        <option th:each="customer : ${customers}"
+                                th:selected="${customer.id} == ${selectedCustomer}"
+                                th:text="${customer.firstName+' '+customer.lastName+' (ID: '+customer.id+')'}"
+                                th:value="${customer.id}"/>
+                    </select>
+                </div>
+            </div>
+
+            <fieldset class="border p-2 m-3" id="articleFieldset">
+                <legend class="float-none w-auto fs-5">Articles</legend>
+
+                <!--article rows here-->
+
+                <div class="row mt-4" id="addArticleRowDiv">
+                    <div class="col-12">
+                        <button class="btn btn-success w-100" id="addArticleRowButton" onclick="addArticleRow(true)"
+                                type="button">Add Article
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="text-center mt-3">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </fieldset>
+
+    <template id="articleRowTemplate">
+        <div class="form-group row m-1">
+            <div class="col-9">
+                <label class="col-form-label" for="articleId-idPlaceholder" hidden>Article</label>
+                <select class="form-select article-select" id="articleId-idPlaceholder" name="articleIds[idPlaceholder]"
+                        required>
+                    <option th:each="article : ${articles}" th:text="${article.name+' (ID: '+article.id+')'}"
+                            th:value="${article.id}">
+                    </option>
+                </select>
+            </div>
+            <div class="col-2">
+                <label class="col-form-label" for="articleAmount-idPlaceholder" hidden>Amount</label>
+                <input class="form-control" id="articleAmount-idPlaceholder" max="1000"
+                       min="1" name="articleAmounts[idPlaceholder]" required type="number">
+            </div>
+            <div class="col-1">
+                <button class="btn btn-danger article-delete-button" onclick="deleteArticleRow(this)" type="button">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </template>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#customer').select2({
+            theme: 'bootstrap-5',
+            width: '100%'
+        });
+
+        addArticleRow(false);
+
+        $('#order-form').on('submit', validateOrder);
+    });
+
+    const articleRowTemplateHtml = $('#articleRowTemplate').html();
+    const maxArticleRows = $(articleRowTemplateHtml).find('#articleId-idPlaceholder').children().length;
+    let articleRowCounter = 0;
+
+    function addArticleRow(deleteButtonVisible) {
+
+        let newArticleRow = $(articleRowTemplateHtml.replaceAll("idPlaceholder", articleRowCounter));
+        let deleteButton = newArticleRow.find('.article-delete-button').eq(0);
+
+        if (deleteButtonVisible) {
+            deleteButton.show();
+        } else {
+            deleteButton.hide();
+        }
+
+        newArticleRow.insertBefore($('#addArticleRowDiv'));
+
+        newArticleRow.find('.article-select').eq(0).select2({
+            theme: 'bootstrap-5',
+            width: '100%'
+        });
+
+        articleRowCounter++;
+
+        if (articleRowCounter >= maxArticleRows) {
+            $('#addArticleRowButton').hide();
+        }
+    }
+
+    function deleteArticleRow(button) {
+        button.closest('.row').remove();
+        articleRowCounter--;
+
+        if (articleRowCounter < maxArticleRows) {
+            $('#addArticleRowButton').show();
+        }
+    }
+
+    function validateOrder() {
+
+        let selectedArticleIds = [];
+        let containsDuplicateArticles = false;
+        let duplicateArticleId = -1;
+
+        const articleSelects = $('.article-select');
+
+        for (let i = 0; i < articleSelects.length; i++) {
+
+            const selectedArticleId = articleSelects.eq(i).find(":selected").val();
+
+            if (selectedArticleIds.includes(selectedArticleId)) {
+                containsDuplicateArticles = true;
+                duplicateArticleId = selectedArticleId;
+                break;
+            } else {
+                selectedArticleIds.push(selectedArticleId);
+            }
+        }
+
+        if (containsDuplicateArticles) {
+            const warning = $('<div class="alert alert-danger">Article with ID "' + duplicateArticleId + '" appears more than once!</div>');
+            warning.insertAfter($('h1').eq(0));
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+</script>
+
+</body>
+</html>

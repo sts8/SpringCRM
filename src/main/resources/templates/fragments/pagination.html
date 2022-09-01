@@ -1,0 +1,33 @@
+<nav th:with="currentPageNo=${page.getNumber()},currentURI=${#httpServletRequest.getRequestURI()}">
+
+    <ul class="pagination justify-content-center">
+
+        <!-- double-arrow pointing left, disabled on first page -->
+        <li class="page-item" th:classappend="${page.isFirst()} ? 'disabled'" title="First Page">
+            <a class="page-link" th:href="@{${currentURI}(page=0)}"><span>⇤</span></a>
+        </li>
+
+        <!-- previous page number, left from current page indicator -->
+        <li class="page-item" th:attr="title='Page ' + ${currentPageNo}" th:if="${currentPageNo gt 0}">
+            <a class="page-link" th:href="@{${currentURI}(page=${currentPageNo}-1)}" th:text="${currentPageNo}"></a>
+        </li>
+
+        <!-- current page indicator -->
+        <li class="page-item active" title="Current Page">
+            <a class="page-link fw-bold" th:href="@{${currentURI}(page=${currentPageNo})}"
+               th:text="${currentPageNo+1}"></a>
+        </li>
+
+        <!-- next page number, right next to current page indicator -->
+        <li class="page-item" th:attr="title='Page ' + ${currentPageNo+2}" th:if="${page.hasNext()}">
+            <a class="page-link" th:href="@{${currentURI}(page=${currentPageNo}+1)}" th:text="${currentPageNo+2}"></a>
+        </li>
+
+        <!-- double-arrow pointing right, visible but disabled on last page -->
+        <li class="page-item" th:classappend="${page.isLast()} ? 'disabled'" title="Last Page">
+            <a class="page-link" th:href="@{${currentURI}(page=${page.getTotalPages()-1})}"><span>⇥</span></a>
+        </li>
+
+    </ul>
+
+</nav>

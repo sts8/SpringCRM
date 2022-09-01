@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Customer - SpringCRM</title>
+    <link th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}" th:rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+
+<body>
+<div class="container">
+
+    <div th:replace="fragments/navbar"></div>
+    <h1 class="text-center">Add Customer</h1>
+    <div th:replace="fragments/message"></div>
+
+    <fieldset class="border p-2">
+        <legend class="float-none w-auto">Add Customer</legend>
+        <form action="#" method="post" th:action="@{/customers/add}" th:object="${customerAddDto}">
+            <div class="form-group row m-1">
+                <label class="col-sm-4 col-form-label" for="firstName">First Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="firstName" placeholder="Enter First Name" required
+                           th:field="*{firstName}" type="text"/>
+                </div>
+            </div>
+            <div class="form-group row m-1">
+                <label class="col-sm-4 col-form-label" for="lastName">Last Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="lastName" placeholder="Enter Last Name" required
+                           th:field="*{lastName}" type="text"/>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </fieldset>
+</div>
+
+</body>
+</html>

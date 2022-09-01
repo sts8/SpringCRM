@@ -1,0 +1,191 @@
+insert into ARTICLES (name)
+values ('Article 1');
+insert into ARTICLES (name)
+values ('Article 2');
+insert into ARTICLES (name)
+values ('Article 3');
+insert into ARTICLES (name)
+values ('Article 4');
+insert into ARTICLES (name)
+values ('Article 5');
+insert into ARTICLES (name)
+values ('Article 6');
+insert into ARTICLES (name)
+values ('Article 7');
+insert into ARTICLES (name)
+values ('Article 8');
+insert into ARTICLES (name)
+values ('Article 9');
+insert into ARTICLES (name)
+values ('Article 10');
+insert into ARTICLES (name)
+values ('Article 11');
+insert into ARTICLES (name)
+values ('Article 12');
+insert into ARTICLES (name)
+values ('Article 13');
+insert into ARTICLES (name)
+values ('Article 14');
+insert into ARTICLES (name)
+values ('Article 15');
+insert into ARTICLES (name)
+values ('Article 16');
+insert into ARTICLES (name)
+values ('Article 17');
+insert into ARTICLES (name)
+values ('Article 18');
+insert into ARTICLES (name)
+values ('Article 19');
+insert into ARTICLES (name)
+values ('Article 20');
+insert into ARTICLES (name)
+values ('Article 21');
+insert into ARTICLES (name)
+values ('Article 22');
+insert into ARTICLES (name)
+values ('Article 23');
+insert into ARTICLES (name)
+values ('Article 24');
+insert into ARTICLES (name)
+values ('Article 25');
+insert into ARTICLES (name)
+values ('Article 26');
+insert into ARTICLES (name)
+values ('Article 27');
+insert into ARTICLES (name)
+values ('Article 28');
+insert into ARTICLES (name)
+values ('Article 29');
+insert into ARTICLES (name)
+values ('Article 30');
+insert into ARTICLES (name)
+values ('Article 31');
+insert into ARTICLES (name)
+values ('Article 32');
+insert into ARTICLES (name)
+values ('Article 33');
+insert into ARTICLES (name)
+values ('Article 34');
+insert into ARTICLES (name)
+values ('Article 35');
+insert into ARTICLES (name)
+values ('Article 36');
+insert into ARTICLES (name)
+values ('Article 37');
+
+insert into CUSTOMERS (first_name, last_name)
+values ('Dorien', 'Barry');
+insert into CUSTOMERS (first_name, last_name)
+values ('Shanna', 'Stallings');
+insert into CUSTOMERS (first_name, last_name)
+values ('Mae', 'Poole');
+insert into CUSTOMERS (first_name, last_name)
+values ('April', 'Gunderson');
+insert into CUSTOMERS (first_name, last_name)
+values ('Garret', 'Arias');
+insert into CUSTOMERS (first_name, last_name)
+values ('Reginald', 'Yee');
+insert into CUSTOMERS (first_name, last_name)
+values ('Ayesha', 'Carrasco');
+insert into CUSTOMERS (first_name, last_name)
+values ('Aiyanna', 'Gilbert');
+insert into CUSTOMERS (first_name, last_name)
+values ('Gillian', 'Fredman');
+insert into CUSTOMERS (first_name, last_name)
+values ('Adrian', 'Coulter');
+insert into CUSTOMERS (first_name, last_name)
+values ('Konnor', 'Logan');
+insert into CUSTOMERS (first_name, last_name)
+values ('Russell', 'Aparicio');
+insert into CUSTOMERS (first_name, last_name)
+values ('Noe', 'Rainey');
+insert into CUSTOMERS (first_name, last_name)
+values ('Brant', 'Perrin');
+insert into CUSTOMERS (first_name, last_name)
+values ('Daniel', 'Hager');
+insert into CUSTOMERS (first_name, last_name)
+values ('Misael', 'Roman');
+insert into CUSTOMERS (first_name, last_name)
+values ('Georgina', 'Gibson');
+insert into CUSTOMERS (first_name, last_name)
+values ('Jarod', 'Jaime');
+insert into CUSTOMERS (first_name, last_name)
+values ('Willis', 'Rodrigez');
+insert into CUSTOMERS (first_name, last_name)
+values ('Bradley', 'Sad');
+insert into CUSTOMERS (first_name, last_name)
+values ('Danica', 'Hinson');
+insert into CUSTOMERS (first_name, last_name)
+values ('Mauricia', 'Everett');
+insert into CUSTOMERS (first_name, last_name)
+values ('Iman', 'Mayhew');
+insert into CUSTOMERS (first_name, last_name)
+values ('Casey', 'Holley');
+insert into CUSTOMERS (first_name, last_name)
+values ('Joselyn', 'Burrell');
+insert into CUSTOMERS (first_name, last_name)
+values ('Nevin', 'Delarosa');
+insert into CUSTOMERS (first_name, last_name)
+values ('Zachariah', 'Godinez');
+insert into CUSTOMERS (first_name, last_name)
+values ('Zachry', 'Fleck');
+insert into CUSTOMERS (first_name, last_name)
+values ('Blake', 'Leung');
+insert into CUSTOMERS (first_name, last_name)
+values ('Shirley', 'Clark');
+insert into CUSTOMERS (first_name, last_name)
+values ('Liliana', 'Braun');
+insert into CUSTOMERS (first_name, last_name)
+values ('Anastasia', 'Judd');
+insert into CUSTOMERS (first_name, last_name)
+values ('Tracy', 'Rivera');
+insert into CUSTOMERS (first_name, last_name)
+values ('Aniyah', 'Miller');
+insert into CUSTOMERS (first_name, last_name)
+values ('Yamileth', 'Gibbs');
+insert into CUSTOMERS (first_name, last_name)
+values ('Yusef', 'Corey');
+insert into CUSTOMERS (first_name, last_name)
+values ('Ashlin', 'Street');
+insert into CUSTOMERS (first_name, last_name)
+values ('Shelby', 'Diaz');
+insert into CUSTOMERS (first_name, last_name)
+values ('Bo', 'Reedy');
+insert into CUSTOMERS (first_name, last_name)
+values ('Maryann', 'Hummel');
+insert into CUSTOMERS (first_name, last_name)
+values ('Rhys', 'Hooks');
+insert into CUSTOMERS (first_name, last_name)
+values ('Myra', 'Meyers');
+insert into CUSTOMERS (first_name, last_name)
+values ('Alayna', 'Castellano');
+insert into CUSTOMERS (first_name, last_name)
+values ('Paulina', 'Burnett');
+insert into CUSTOMERS (first_name, last_name)
+values ('Iyana', 'Jacobsen');
+insert into CUSTOMERS (first_name, last_name)
+values ('Austyn', 'Goldsmith');
+insert into CUSTOMERS (first_name, last_name)
+values ('Ishmael', 'Valentine');
+insert into CUSTOMERS (first_name, last_name)
+values ('Deondre', 'Vogt');
+insert into CUSTOMERS (first_name, last_name)
+values ('Pierre', 'Bass');
+insert into CUSTOMERS (first_name, last_name)
+values ('Allison', 'Chavez');
+
+insert into ORDERS (timestamp, customer_id)
+values ('2008-10-29 14:56:59', 1);
+insert into ORDERS (timestamp, customer_id)
+values ('2008-11-09 15:45:21', 2);
+insert into ORDERS (timestamp, customer_id)
+values ('2008-11-11 13:23:44', 1);
+
+insert into ORDER_CONTAINS_ARTICLE_RELATION (amount, article_id, order_id)
+values (25, 1, 1);
+insert into ORDER_CONTAINS_ARTICLE_RELATION (amount, article_id, order_id)
+values (80, 2, 1);
+insert into ORDER_CONTAINS_ARTICLE_RELATION (amount, article_id, order_id)
+values (7, 1, 3);
+insert into ORDER_CONTAINS_ARTICLE_RELATION (amount, article_id, order_id)
+values (9, 2, 3);
